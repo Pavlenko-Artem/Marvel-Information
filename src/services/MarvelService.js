@@ -10,4 +10,10 @@ class MarvelService {
 
     return await res.json();
   }
+
+  getAllCharacters = () => {
+    return this.getResources('https://gateway.marvel.com:443/v1/public/characters?apikey=9b86234cc5a303cbdc10975ed742e691');
+  }
 }
+
+export default MarvelService;
