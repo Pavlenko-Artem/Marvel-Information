@@ -21,6 +21,7 @@ class CharList extends Component {
     }
 
     onRequest = (offset) => {
+        this.onCharListLoading();
         this.marvelService
             .getAllCharacters(offset)
             .then(this.onCharListLoaded)
@@ -33,11 +34,12 @@ class CharList extends Component {
         })
     }
 
-    onCharListLoaded = (charList) => {
-        this.setState({
-            charList,
-            loading: false
-        })
+    onCharListLoaded = (newCharList) => {
+        this.setState(({ charList }) => ({
+            charList: [...charList, ...newCharList],
+            loading: false,
+            newItemLoading: false
+        }))
     }
 
     onError = () => {
