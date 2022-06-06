@@ -27,6 +27,12 @@ class CharList extends Component {
             .catch(this.onError);
     }
 
+    onCharListLoading = () => {
+        this.setState({
+            newItemLoading: true
+        })
+    }
+
     onCharListLoaded = (charList) => {
         this.setState({
             charList,
