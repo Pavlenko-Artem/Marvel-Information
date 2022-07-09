@@ -21,10 +21,10 @@ const ComicsList = () => {
     const onRequest = (offset, initial) => {
         initial ? setNewItemLoading(false) : setNewItemLoading(true);
         getAllComics(offset)
-            .then(onCharListLoaded)
+            .then(onComicsListLoaded)
     }
 
-    const onCharListLoaded = (newComicsList) => {
+    const onComicsListLoaded = (newComicsList) => {
         let ended = false;
 
         if (newComicsList.length < 8) {
